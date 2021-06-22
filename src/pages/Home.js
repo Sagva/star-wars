@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { CharacterContext } from "../contexts/CharacterContext"
-import CharacterCard from "../components/CharacterCard"
+import CharacterList from "../components/CharacterList"
 import styles from  "../styles/Home.module.css";
 import Pagination from '../components/Pagination'
 
@@ -23,7 +23,7 @@ const Home = () => {
                 <div className='text-center'>
                     <h1 className={`${styles.heading} my-sm-5`}>Star wars characters</h1>
                 </div>
-                <CharacterCard characters={characters} />
+                <CharacterList characters={characters} />
                 <Pagination values={paginationsValues}/>
             </div>
     }
