@@ -5,17 +5,18 @@ export const CharacterContext = createContext();
 function CharacterProvider(props) {
   const [characters, setCharacters] = useState([]);
 
+  const getCharacters = async () => {
+    try {
+      let result = await fetch(`https://swapi.dev/api/people`)
+      result = await result.json()
+      setCharacters(result)
+    } catch(error) {
+      setCharacters(`Something went wrong: ${error}`)
+    }
+  }
+
   useEffect(() => {
-    fetch("https://swapi.dev/api/people")
-      .then(res => res.json())
-      .then(
-        (result) => {
-            setCharacters(result)
-        },
-        (error) => {
-          console.log(`error`, error)
-        }
-      )
+    getCharacters()
   }, []);
 
  

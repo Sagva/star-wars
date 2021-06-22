@@ -4,17 +4,17 @@ import CharacterCard from "../components/CharacterCard"
 
 const Home = () => {
     const { characters } = useContext(CharacterContext)
-
+    console.log(`characters`, characters)
     let content = ''
 
-    if (characters) {
+    if (characters && typeof characters !== 'string') {
         content =
             <div>
                 <CharacterCard characters={characters} />
             </div>
     }
     else {
-        content = <div>Loading...</div>
+        content = <div>{characters}</div>
     }
 
     return (
