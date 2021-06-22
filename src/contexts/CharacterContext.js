@@ -5,24 +5,37 @@ export const CharacterContext = createContext();
 function CharacterProvider(props) {
   const [characters, setCharacters] = useState([]);
 
-  const getCharacters = async () => {
+  //for pagination
+  const [pageTotal, setPageTotal] = useState(null)
+  const [currentPage, setCurrentPage] = useState(1)
+
+  const countPageTotal = (totalRecords) => {
+    let pageTotal = Math.ceil(totalRecords / 10)
+    setPageTotal(pageTotal)
+  }
+
+  const getCharacters = async (page) => {
     try {
-      let result = await fetch(`https://swapi.dev/api/people`)
+      let result = await fetch(`https://swapi.dev/api/people/?page=${page}`)
       result = await result.json()
       setCharacters(result)
-    } catch(error) {
+      countPageTotal(result.count)
+    } catch (error) {
       setCharacters(`Something went wrong: ${error}`)
     }
   }
 
   useEffect(() => {
-    getCharacters()
-  }, []);
+    getCharacters(currentPage)
+  }, [currentPage]);
 
- 
+
 
   const values = {
     characters,
+    pageTotal,
+    currentPage,
+    setCurrentPage
   };
 
   return (
