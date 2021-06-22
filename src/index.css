@@ -12,4 +12,21 @@ body {
   font-family: 'Open Sans', sans-serif;
   box-sizing: border-box;
   background-image: url('./img/manouchehr-hejazi-QeoXkIesiCo-unsplash.jpg');
+  background-position: center;
+}
+
+/* Styling for pagination */
+.page-link {
+  text-shadow: 0 0 0px #581728, 0 0 0px #581728, 0 0 3px #581728 !important;
+  color: #581728 !important;
+}
+.page-link:focus {
+  box-shadow: none !important;
+}
+
+.page-item.active .page-link {
+  color: #eee !important;
+  background-color: #581728 !important;
+  border-color: #581728 !important;
+  text-shadow: 0 0 5px white, 0 0 5px white, 0 0 5px white !important;
 }

@@ -2,7 +2,7 @@ import Pagination from 'react-bootstrap/Pagination';
 
 const PaginationComponent = (props) => {
     const { activPage, pageTotal, setCurrentPage } = props.values
-    
+
     let active = activPage; //active page which is highlighted
     let items = [];//how many pages in the pagination bar
 
@@ -26,7 +26,7 @@ const PaginationComponent = (props) => {
     );
 
     return (
-        <div>
+        <div className='d-flex flex-column justify-content-end'>
             {paginationBasic}
         </div>
     );

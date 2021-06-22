@@ -19,9 +19,9 @@ const Home = () => {
 
     if (characters && typeof characters !== 'string') {
         content =
-            <div className={`${styles.contentWrapper} py-5 mt-sm-5`} >
+            <div className={`${styles.contentWrapper} d-flex flex-column mt-3 py-5 mt-sm-5`} >
                 <div className='text-center'>
-                    <h1 className='my-5'>Star wars characters</h1>
+                    <h1 className={`${styles.heading} my-sm-5`}>Star wars characters</h1>
                 </div>
                 <CharacterCard characters={characters} />
                 <Pagination values={paginationsValues}/>
