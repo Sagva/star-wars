@@ -1,7 +1,7 @@
 .charCardList {
     width: 20rem;
     margin: 0 auto;
-    text-shadow: 0 0 5px green, 0 0 5px green, 0 0 5px green;
+    
 }
 
 @media only screen and (min-width: 576px) {

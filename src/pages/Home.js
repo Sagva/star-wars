@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import React, { useContext } from "react"
 import { CharacterContext } from "../contexts/CharacterContext"
 import CharacterList from "../components/CharacterList"
 import styles from  "../styles/Home.module.css";

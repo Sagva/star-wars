@@ -33,11 +33,15 @@ body {
 
 /* Styling for Modal window */
 
+.modal-backdrop.show {
+  opacity: 0.7 !important;
+}
+
 .modal-content {
   width: 25rem !important;
-  background-color: rgba(0, 0, 0, 0.8) !important;
   color: #eee !important;
-  background-image: url('./img/bg-modal.jpg');
+  background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url('./img/bg-modal.jpg');
+  box-shadow: 0px 0px 7px 4px white !important;
   border-radius: 1rem !important;
 }
 .modal-body {
@@ -65,5 +69,8 @@ body {
 @media only screen and (min-width: 576px) {
   .modal-content {
     width: 55rem !important;
+  }
+  .modal-backdrop.show {
+    opacity: 0.2 !important;
   }
 }

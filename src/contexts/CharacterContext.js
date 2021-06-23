@@ -1,4 +1,4 @@
-import { createContext, useState, useEffect } from "react";
+import React, { createContext, useState, useEffect } from "react";
 
 export const CharacterContext = createContext();
 
@@ -8,14 +8,19 @@ function CharacterProvider(props) {
   //for pagination
   const [pageTotal, setPageTotal] = useState(null);
   const [currentPage, setCurrentPage] = useState(1);
+  const limitPerRequest = 10;
 
   //for search
   const [search, setSearch] = useState("");
 
   const countFilteredCharacters = async (userSearch) => {
-    let result = await fetch(`https://swapi.dev/api/people/?search=${userSearch}`)
-    result = await result.json()
-    setPageTotal(Math.ceil(result.count / 10))
+    try {
+      let result = await fetch(`https://swapi.dev/api/people/?search=${userSearch}`)
+      result = await result.json()
+      setPageTotal(Math.ceil(result.count / limitPerRequest))
+    } catch {
+      alert(`Can not get data, please try later`)
+    }
   };
 
   const getCharacters = async (page, search) => {

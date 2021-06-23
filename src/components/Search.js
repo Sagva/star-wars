@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import React, { useContext, useState } from "react";
 import styles from "../styles/Search.module.css";
 import { CharacterContext } from "../contexts/CharacterContext";
 
@@ -20,7 +20,7 @@ const Search = () => {
             <input
                 className={styles.searchInput}
                 type="text"
-                placeholder="Search for the characters based on their first or last name"
+                placeholder="Search for the characters"
                 onChange={(e) => setPrepSearch(e.target.value)}
             />
         </form>
