@@ -6,36 +6,40 @@ function CharacterProvider(props) {
   const [characters, setCharacters] = useState([]);
 
   //for pagination
-  const [pageTotal, setPageTotal] = useState(null)
-  const [currentPage, setCurrentPage] = useState(1)
+  const [pageTotal, setPageTotal] = useState(null);
+  const [currentPage, setCurrentPage] = useState(1);
 
-  const countPageTotal = (totalRecords) => {
-    let pageTotal = Math.ceil(totalRecords / 10)
-    setPageTotal(pageTotal)
-  }
+  //for search
+  const [search, setSearch] = useState("");
 
-  const getCharacters = async (page) => {
+  const countFilteredCharacters = async (userSearch) => {
+    let result = await fetch(`https://swapi.dev/api/people/?search=${userSearch}`)
+    result = await result.json()
+    setPageTotal(Math.ceil(result.count / 10))
+  };
+
+  const getCharacters = async (page, search) => {
     try {
-      let result = await fetch(`https://swapi.dev/api/people/?page=${page}`)
+      let result = await fetch(`https://swapi.dev/api/people/?page=${page}&search=${search}`)
       result = await result.json()
       setCharacters(result)
-      countPageTotal(result.count)
     } catch (error) {
       setCharacters(`Something went wrong: ${error}`)
     }
-  }
+  };
 
   useEffect(() => {
-    getCharacters(currentPage)
-  }, [currentPage]);
-
-
+    countFilteredCharacters(search)
+    getCharacters(currentPage, search)
+  }, [currentPage, search]);
 
   const values = {
     characters,
     pageTotal,
     currentPage,
-    setCurrentPage
+    setCurrentPage,
+    setSearch,
+    countFilteredCharacters
   };
 
   return (

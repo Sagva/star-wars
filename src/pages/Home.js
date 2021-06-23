@@ -3,11 +3,10 @@ import { CharacterContext } from "../contexts/CharacterContext"
 import CharacterList from "../components/CharacterList"
 import styles from  "../styles/Home.module.css";
 import Pagination from '../components/Pagination'
+import Search from "../components/Search";
 
 const Home = () => {
     const { characters, pageTotal, currentPage, setCurrentPage } = useContext(CharacterContext)
-
-    console.log(`characters`, characters)
 
     let paginationsValues = {
         activPage: currentPage,
@@ -23,6 +22,7 @@ const Home = () => {
                 <div className='text-center'>
                     <h1 className={`${styles.heading} my-sm-5`}>Star wars characters</h1>
                 </div>
+                <Search/>
                 <CharacterList characters={characters} />
                 <Pagination values={paginationsValues}/>
             </div>

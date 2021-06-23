@@ -8,15 +8,12 @@ const PaginationComponent = (props) => {
 
     for (let number = 1; number <= pageTotal; number++) {
         items.push(
-            <Pagination.Item key={number} active={number === active} onClick={() => handleClick(number)}>
+            <Pagination.Item key={number} active={number === active} onClick={() => setCurrentPage(number)}>
                 {number}
             </Pagination.Item>,
         );
     }
 
-    const handleClick = (number) => {
-        setCurrentPage(number)
-    }
 
     const paginationBasic = (
         <div>

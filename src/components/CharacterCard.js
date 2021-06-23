@@ -3,8 +3,6 @@ import { useState } from "react"
 import ModalWindow from '../components/ModalWindow'
 
 const CharacterCard = ({ character }) => {
-    console.log(`character`, character)
-
     const [showModal, setShowModal] = useState(false)
 
     const handleClick = () => {
