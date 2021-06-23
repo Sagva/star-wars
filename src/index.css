@@ -30,3 +30,40 @@ body {
   border-color: #581728 !important;
   text-shadow: 0 0 5px white, 0 0 5px white, 0 0 5px white !important;
 }
+
+/* Styling for Modal window */
+
+.modal-content {
+  width: 25rem !important;
+  background-color: rgba(0, 0, 0, 0.8) !important;
+  color: #eee !important;
+  background-image: url('./img/bg-modal.jpg');
+  border-radius: 1rem !important;
+}
+.modal-body {
+  padding: 2rem !important;
+  text-shadow: 0 0 5px green, 0 0 5px green, 0 0 5px green !important;
+}
+.modalClose {
+  cursor: pointer !important;
+  width: 3rem;
+  background: transparent;
+  border: none;
+  color: #eee;
+  position: absolute;
+  top: 5px;
+  right: 10px;
+}
+
+.modalClose svg:hover {
+  filter: drop-shadow(0 0 0.5rem #000);
+}
+.charName{
+  text-shadow: 0 0 5px blue, 0 0 5px blue, 0 0 5px blue !important;
+}
+
+@media only screen and (min-width: 576px) {
+  .modal-content {
+    width: 55rem !important;
+  }
+}
