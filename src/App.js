@@ -1,10 +1,14 @@
+import "bootstrap/dist/css/bootstrap.min.css";
 import Home from './pages/Home'
+import CharacterProvider from './contexts/CharacterContext';
 
 function App() {
   return (
-    <div className="App">
-     <Home/>
-    </div>
+    <CharacterProvider>
+      <div className="App">
+        <Home />
+      </div>
+    </CharacterProvider>
   );
 }
 
